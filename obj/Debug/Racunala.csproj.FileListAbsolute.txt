@@ -1,0 +1,17 @@
+C:\Users\Legion5\source\repos\Racunala\bin\Debug\Racunala.exe.config
+C:\Users\Legion5\source\repos\Racunala\bin\Debug\Racunala.exe
+C:\Users\Legion5\source\repos\Racunala\bin\Debug\Racunala.pdb
+C:\Users\Legion5\source\repos\Racunala\bin\Debug\EntityFramework.dll
+C:\Users\Legion5\source\repos\Racunala\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Legion5\source\repos\Racunala\bin\Debug\EntityFramework.xml
+C:\Users\Legion5\source\repos\Racunala\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Legion5\source\repos\Racunala\obj\Debug\Racunala.csprojAssemblyReference.cache
+C:\Users\Legion5\source\repos\Racunala\obj\Debug\Racunala.Form1.resources
+C:\Users\Legion5\source\repos\Racunala\obj\Debug\Racunala.formaProcesora.resources
+C:\Users\Legion5\source\repos\Racunala\obj\Debug\Racunala.Properties.Resources.resources
+C:\Users\Legion5\source\repos\Racunala\obj\Debug\Racunala.csproj.GenerateResource.cache
+C:\Users\Legion5\source\repos\Racunala\obj\Debug\Racunala.csproj.CoreCompileInputs.cache
+C:\Users\Legion5\source\repos\Racunala\obj\Debug\Racunala.csproj.CopyComplete
+C:\Users\Legion5\source\repos\Racunala\obj\Debug\Racunala.exe
+C:\Users\Legion5\source\repos\Racunala\obj\Debug\Racunala.pdb
+C:\Users\Legion5\source\repos\Racunala\obj\Debug\Racunala.formKonfiguracijaRac.resources

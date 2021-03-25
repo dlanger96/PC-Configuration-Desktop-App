@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RacunalaModelStoreContainer" CdmEntityContainer="RacunalaEntities">
+    <EntitySetMapping Name="Graficka_Kartica">
+      <EntityTypeMapping TypeName="RacunalaModel.Graficka_Kartica">
+        <MappingFragment StoreEntitySet="Graficka_Kartica">
+          <ScalarProperty Name="Id_Graficke" ColumnName="Id_Graficke" />
+          <ScalarProperty Name="Naziv__Graficke" ColumnName="Naziv__Graficke" />
+          <ScalarProperty Name="Godina_Proizvodnje" ColumnName="Godina_Proizvodnje" />
+          <ScalarProperty Name="Naziv_Proizvodaca" ColumnName="Naziv_Proizvodaca" />
+          <ScalarProperty Name="Kapacitet_Memorije" ColumnName="Kapacitet_Memorije" />
+          <ScalarProperty Name="Cijena_Graficke" ColumnName="Cijena_Graficke" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Konfiguracije_Racunala">
+      <EntityTypeMapping TypeName="RacunalaModel.Konfiguracije_Racunala">
+        <MappingFragment StoreEntitySet="Konfiguracije_Racunala">
+          <ScalarProperty Name="Id_Konfiguracije" ColumnName="Id_Konfiguracije" />
+          <ScalarProperty Name="Naziv_Konfiguracije" ColumnName="Naziv_Konfiguracije" />
+          <ScalarProperty Name="Cijena_Konfiguracije" ColumnName="Cijena_Konfiguracije" />
+          <ScalarProperty Name="Stanje_Na_Skladistu" ColumnName="Stanje_Na_Skladistu" />
+          <ScalarProperty Name="VK_Graficku" ColumnName="VK_Graficku" />
+          <ScalarProperty Name="VK_Kuciste" ColumnName="VK_Kuciste" />
+          <ScalarProperty Name="VK_Maticna" ColumnName="VK_Maticna" />
+          <ScalarProperty Name="VK_Napajanje" ColumnName="VK_Napajanje" />
+          <ScalarProperty Name="VK_Pohranu" ColumnName="VK_Pohranu" />
+          <ScalarProperty Name="VK_Procesor" ColumnName="VK_Procesor" />
+          <ScalarProperty Name="VK_RAM" ColumnName="VK_RAM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kucistes">
+      <EntityTypeMapping TypeName="RacunalaModel.Kuciste">
+        <MappingFragment StoreEntitySet="Kuciste">
+          <ScalarProperty Name="Id_Kucista" ColumnName="Id_Kucista" />
+          <ScalarProperty Name="Naziv_Kucista" ColumnName="Naziv_Kucista" />
+          <ScalarProperty Name="Proizvodac_Kucista" ColumnName="Proizvodac_Kucista" />
+          <ScalarProperty Name="Cijena_Kucista" ColumnName="Cijena_Kucista" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Maticna_Ploca">
+      <EntityTypeMapping TypeName="RacunalaModel.Maticna_Ploca">
+        <MappingFragment StoreEntitySet="Maticna_Ploca">
+          <ScalarProperty Name="Id_Maticna_Ploca" ColumnName="Id_Maticna_Ploca" />
+          <ScalarProperty Name="Naziv_Maticne" ColumnName="Naziv_Maticne" />
+          <ScalarProperty Name="Proizvodac_Maticne" ColumnName="Proizvodac_Maticne" />
+          <ScalarProperty Name="SOCKET_Maticne" ColumnName="SOCKET_Maticne" />
+          <ScalarProperty Name="Cijena_Maticne" ColumnName="Cijena_Maticne" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Napajanjes">
+      <EntityTypeMapping TypeName="RacunalaModel.Napajanje">
+        <MappingFragment StoreEntitySet="Napajanje">
+          <ScalarProperty Name="Id_Napajanje" ColumnName="Id_Napajanje" />
+          <ScalarProperty Name="Naziv_Napajanja" ColumnName="Naziv_Napajanja" />
+          <ScalarProperty Name="Proizvodac_Napajanja" ColumnName="Proizvodac_Napajanja" />
+          <ScalarProperty Name="Certifikat_Napajanaj" ColumnName="Certifikat_Napajanaj" />
+          <ScalarProperty Name="Kapacitet_Napajanja" ColumnName="Kapacitet_Napajanja" />
+          <ScalarProperty Name="Cijena_Napajanja" ColumnName="Cijena_Napajanja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pohranas">
+      <EntityTypeMapping TypeName="RacunalaModel.Pohrana">
+        <MappingFragment StoreEntitySet="Pohrana">
+          <ScalarProperty Name="Id_Pohrana" ColumnName="Id_Pohrana" />
+          <ScalarProperty Name="Naziv_Diska" ColumnName="Naziv_Diska" />
+          <ScalarProperty Name="Proizvodac_Diska" ColumnName="Proizvodac_Diska" />
+          <ScalarProperty Name="Kapacitet_Diska" ColumnName="Kapacitet_Diska" />
+          <ScalarProperty Name="Cijena_Diska" ColumnName="Cijena_Diska" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Procesors">
+      <EntityTypeMapping TypeName="RacunalaModel.Procesor">
+        <MappingFragment StoreEntitySet="Procesor">
+          <ScalarProperty Name="Id_Procesor" ColumnName="Id_Procesor" />
+          <ScalarProperty Name="Naziv_Procesora" ColumnName="Naziv_Procesora" />
+          <ScalarProperty Name="Proizvodac_Procesora" ColumnName="Proizvodac_Procesora" />
+          <ScalarProperty Name="Godina_Proizvodnje" ColumnName="Godina_Proizvodnje" />
+          <ScalarProperty Name="Broj_Jezgri" ColumnName="Broj_Jezgri" />
+          <ScalarProperty Name="Takt_Procesora" ColumnName="Takt_Procesora" />
+          <ScalarProperty Name="Cijena_Procesora" ColumnName="Cijena_Procesora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Radna_Memorija">
+      <EntityTypeMapping TypeName="RacunalaModel.Radna_Memorija">
+        <MappingFragment StoreEntitySet="Radna_Memorija">
+          <ScalarProperty Name="Id_RAM" ColumnName="Id_RAM" />
+          <ScalarProperty Name="Naziv_RAM" ColumnName="Naziv_RAM" />
+          <ScalarProperty Name="Proizvodac_RAM" ColumnName="Proizvodac_RAM" />
+          <ScalarProperty Name="Kapacitet_RAM" ColumnName="Kapacitet_RAM" />
+          <ScalarProperty Name="Tip_Memorije" ColumnName="Tip_Memorije" />
+          <ScalarProperty Name="Cijena_RAM" ColumnName="Cijena_RAM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="RacunalaModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,610 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RacunalaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Graficka_Kartica">
+          <Key>
+            <PropertyRef Name="Id_Graficke" />
+          </Key>
+          <Property Name="Id_Graficke" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv__Graficke" Type="varchar" MaxLength="50" />
+          <Property Name="Godina_Proizvodnje" Type="int" />
+          <Property Name="Naziv_Proizvodaca" Type="varchar" MaxLength="50" />
+          <Property Name="Kapacitet_Memorije" Type="varchar" MaxLength="50" />
+          <Property Name="Cijena_Graficke" Type="money" />
+        </EntityType>
+        <EntityType Name="Konfiguracije_Racunala">
+          <Key>
+            <PropertyRef Name="Id_Konfiguracije" />
+          </Key>
+          <Property Name="Id_Konfiguracije" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv_Konfiguracije" Type="varchar" MaxLength="50" />
+          <Property Name="Cijena_Konfiguracije" Type="money" />
+          <Property Name="Stanje_Na_Skladistu" Type="int" />
+          <Property Name="VK_Graficku" Type="int" />
+          <Property Name="VK_Kuciste" Type="int" />
+          <Property Name="VK_Maticna" Type="int" />
+          <Property Name="VK_Napajanje" Type="int" />
+          <Property Name="VK_Pohranu" Type="int" />
+          <Property Name="VK_Procesor" Type="int" />
+          <Property Name="VK_RAM" Type="int" />
+        </EntityType>
+        <EntityType Name="Kuciste">
+          <Key>
+            <PropertyRef Name="Id_Kucista" />
+          </Key>
+          <Property Name="Id_Kucista" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv_Kucista" Type="varchar" MaxLength="50" />
+          <Property Name="Proizvodac_Kucista" Type="varchar" MaxLength="50" />
+          <Property Name="Cijena_Kucista" Type="money" />
+        </EntityType>
+        <EntityType Name="Maticna_Ploca">
+          <Key>
+            <PropertyRef Name="Id_Maticna_Ploca" />
+          </Key>
+          <Property Name="Id_Maticna_Ploca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv_Maticne" Type="varchar" MaxLength="50" />
+          <Property Name="Proizvodac_Maticne" Type="varchar" MaxLength="50" />
+          <Property Name="SOCKET_Maticne" Type="varchar" MaxLength="50" />
+          <Property Name="Cijena_Maticne" Type="money" />
+        </EntityType>
+        <EntityType Name="Napajanje">
+          <Key>
+            <PropertyRef Name="Id_Napajanje" />
+          </Key>
+          <Property Name="Id_Napajanje" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv_Napajanja" Type="varchar" MaxLength="50" />
+          <Property Name="Proizvodac_Napajanja" Type="varchar" MaxLength="50" />
+          <Property Name="Certifikat_Napajanaj" Type="varchar" MaxLength="50" />
+          <Property Name="Kapacitet_Napajanja" Type="int" />
+          <Property Name="Cijena_Napajanja" Type="money" />
+        </EntityType>
+        <EntityType Name="Pohrana">
+          <Key>
+            <PropertyRef Name="Id_Pohrana" />
+          </Key>
+          <Property Name="Id_Pohrana" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv_Diska" Type="varchar" MaxLength="50" />
+          <Property Name="Proizvodac_Diska" Type="varchar" MaxLength="50" />
+          <Property Name="Kapacitet_Diska" Type="int" />
+          <Property Name="Cijena_Diska" Type="money" />
+        </EntityType>
+        <EntityType Name="Procesor">
+          <Key>
+            <PropertyRef Name="Id_Procesor" />
+          </Key>
+          <Property Name="Id_Procesor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv_Procesora" Type="varchar" MaxLength="50" />
+          <Property Name="Proizvodac_Procesora" Type="varchar" MaxLength="50" />
+          <Property Name="Godina_Proizvodnje" Type="int" />
+          <Property Name="Broj_Jezgri" Type="int" />
+          <Property Name="Takt_Procesora" Type="float" />
+          <Property Name="Cijena_Procesora" Type="money" />
+        </EntityType>
+        <EntityType Name="Radna_Memorija">
+          <Key>
+            <PropertyRef Name="Id_RAM" />
+          </Key>
+          <Property Name="Id_RAM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naziv_RAM" Type="varchar" MaxLength="50" />
+          <Property Name="Proizvodac_RAM" Type="varchar" MaxLength="50" />
+          <Property Name="Kapacitet_RAM" Type="int" />
+          <Property Name="Tip_Memorije" Type="varchar" MaxLength="50" />
+          <Property Name="Cijena_RAM" Type="money" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Konfiguracije_Racunala_Graficka_Kartica">
+          <End Role="Graficka_Kartica" Type="Self.Graficka_Kartica" Multiplicity="0..1" />
+          <End Role="Konfiguracije_Racunala" Type="Self.Konfiguracije_Racunala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Graficka_Kartica">
+              <PropertyRef Name="Id_Graficke" />
+            </Principal>
+            <Dependent Role="Konfiguracije_Racunala">
+              <PropertyRef Name="VK_Graficku" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konfiguracije_Racunala_Kuciste">
+          <End Role="Kuciste" Type="Self.Kuciste" Multiplicity="0..1" />
+          <End Role="Konfiguracije_Racunala" Type="Self.Konfiguracije_Racunala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kuciste">
+              <PropertyRef Name="Id_Kucista" />
+            </Principal>
+            <Dependent Role="Konfiguracije_Racunala">
+              <PropertyRef Name="VK_Kuciste" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konfiguracije_Racunala_Maticna_Ploca">
+          <End Role="Maticna_Ploca" Type="Self.Maticna_Ploca" Multiplicity="0..1" />
+          <End Role="Konfiguracije_Racunala" Type="Self.Konfiguracije_Racunala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maticna_Ploca">
+              <PropertyRef Name="Id_Maticna_Ploca" />
+            </Principal>
+            <Dependent Role="Konfiguracije_Racunala">
+              <PropertyRef Name="VK_Maticna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konfiguracije_Racunala_Napajanje">
+          <End Role="Napajanje" Type="Self.Napajanje" Multiplicity="0..1" />
+          <End Role="Konfiguracije_Racunala" Type="Self.Konfiguracije_Racunala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Napajanje">
+              <PropertyRef Name="Id_Napajanje" />
+            </Principal>
+            <Dependent Role="Konfiguracije_Racunala">
+              <PropertyRef Name="VK_Napajanje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konfiguracije_Racunala_Pohrana">
+          <End Role="Pohrana" Type="Self.Pohrana" Multiplicity="0..1" />
+          <End Role="Konfiguracije_Racunala" Type="Self.Konfiguracije_Racunala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pohrana">
+              <PropertyRef Name="Id_Pohrana" />
+            </Principal>
+            <Dependent Role="Konfiguracije_Racunala">
+              <PropertyRef Name="VK_Pohranu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konfiguracije_Racunala_Procesor">
+          <End Role="Procesor" Type="Self.Procesor" Multiplicity="0..1" />
+          <End Role="Konfiguracije_Racunala" Type="Self.Konfiguracije_Racunala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Procesor">
+              <PropertyRef Name="Id_Procesor" />
+            </Principal>
+            <Dependent Role="Konfiguracije_Racunala">
+              <PropertyRef Name="VK_Procesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konfiguracije_Racunala_Radna_Memorija">
+          <End Role="Radna_Memorija" Type="Self.Radna_Memorija" Multiplicity="0..1" />
+          <End Role="Konfiguracije_Racunala" Type="Self.Konfiguracije_Racunala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Radna_Memorija">
+              <PropertyRef Name="Id_RAM" />
+            </Principal>
+            <Dependent Role="Konfiguracije_Racunala">
+              <PropertyRef Name="VK_RAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RacunalaModelStoreContainer">
+          <EntitySet Name="Graficka_Kartica" EntityType="Self.Graficka_Kartica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Konfiguracije_Racunala" EntityType="Self.Konfiguracije_Racunala" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kuciste" EntityType="Self.Kuciste" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Maticna_Ploca" EntityType="Self.Maticna_Ploca" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Napajanje" EntityType="Self.Napajanje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pohrana" EntityType="Self.Pohrana" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Procesor" EntityType="Self.Procesor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Radna_Memorija" EntityType="Self.Radna_Memorija" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Konfiguracije_Racunala_Graficka_Kartica" Association="Self.FK_Konfiguracije_Racunala_Graficka_Kartica">
+            <End Role="Graficka_Kartica" EntitySet="Graficka_Kartica" />
+            <End Role="Konfiguracije_Racunala" EntitySet="Konfiguracije_Racunala" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konfiguracije_Racunala_Kuciste" Association="Self.FK_Konfiguracije_Racunala_Kuciste">
+            <End Role="Kuciste" EntitySet="Kuciste" />
+            <End Role="Konfiguracije_Racunala" EntitySet="Konfiguracije_Racunala" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konfiguracije_Racunala_Maticna_Ploca" Association="Self.FK_Konfiguracije_Racunala_Maticna_Ploca">
+            <End Role="Maticna_Ploca" EntitySet="Maticna_Ploca" />
+            <End Role="Konfiguracije_Racunala" EntitySet="Konfiguracije_Racunala" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konfiguracije_Racunala_Napajanje" Association="Self.FK_Konfiguracije_Racunala_Napajanje">
+            <End Role="Napajanje" EntitySet="Napajanje" />
+            <End Role="Konfiguracije_Racunala" EntitySet="Konfiguracije_Racunala" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konfiguracije_Racunala_Pohrana" Association="Self.FK_Konfiguracije_Racunala_Pohrana">
+            <End Role="Pohrana" EntitySet="Pohrana" />
+            <End Role="Konfiguracije_Racunala" EntitySet="Konfiguracije_Racunala" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konfiguracije_Racunala_Procesor" Association="Self.FK_Konfiguracije_Racunala_Procesor">
+            <End Role="Procesor" EntitySet="Procesor" />
+            <End Role="Konfiguracije_Racunala" EntitySet="Konfiguracije_Racunala" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konfiguracije_Racunala_Radna_Memorija" Association="Self.FK_Konfiguracije_Racunala_Radna_Memorija">
+            <End Role="Radna_Memorija" EntitySet="Radna_Memorija" />
+            <End Role="Konfiguracije_Racunala" EntitySet="Konfiguracije_Racunala" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RacunalaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Graficka_Kartica">
+          <Key>
+            <PropertyRef Name="Id_Graficke" />
+          </Key>
+          <Property Name="Id_Graficke" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv__Graficke" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Godina_Proizvodnje" Type="Int32" />
+          <Property Name="Naziv_Proizvodaca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kapacitet_Memorije" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cijena_Graficke" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Konfiguracije_Racunala" Relationship="Self.FK_Konfiguracije_Racunala_Graficka_Kartica" FromRole="Graficka_Kartica" ToRole="Konfiguracije_Racunala" />
+        </EntityType>
+        <EntityType Name="Konfiguracije_Racunala">
+          <Key>
+            <PropertyRef Name="Id_Konfiguracije" />
+          </Key>
+          <Property Name="Id_Konfiguracije" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv_Konfiguracije" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cijena_Konfiguracije" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Stanje_Na_Skladistu" Type="Int32" />
+          <Property Name="VK_Graficku" Type="Int32" />
+          <Property Name="VK_Kuciste" Type="Int32" />
+          <Property Name="VK_Maticna" Type="Int32" />
+          <Property Name="VK_Napajanje" Type="Int32" />
+          <Property Name="VK_Pohranu" Type="Int32" />
+          <Property Name="VK_Procesor" Type="Int32" />
+          <Property Name="VK_RAM" Type="Int32" />
+          <NavigationProperty Name="Graficka_Kartica" Relationship="Self.FK_Konfiguracije_Racunala_Graficka_Kartica" FromRole="Konfiguracije_Racunala" ToRole="Graficka_Kartica" />
+          <NavigationProperty Name="Kuciste" Relationship="Self.FK_Konfiguracije_Racunala_Kuciste" FromRole="Konfiguracije_Racunala" ToRole="Kuciste" />
+          <NavigationProperty Name="Maticna_Ploca" Relationship="Self.FK_Konfiguracije_Racunala_Maticna_Ploca" FromRole="Konfiguracije_Racunala" ToRole="Maticna_Ploca" />
+          <NavigationProperty Name="Napajanje" Relationship="Self.FK_Konfiguracije_Racunala_Napajanje" FromRole="Konfiguracije_Racunala" ToRole="Napajanje" />
+          <NavigationProperty Name="Pohrana" Relationship="Self.FK_Konfiguracije_Racunala_Pohrana" FromRole="Konfiguracije_Racunala" ToRole="Pohrana" />
+          <NavigationProperty Name="Procesor" Relationship="Self.FK_Konfiguracije_Racunala_Procesor" FromRole="Konfiguracije_Racunala" ToRole="Procesor" />
+          <NavigationProperty Name="Radna_Memorija" Relationship="Self.FK_Konfiguracije_Racunala_Radna_Memorija" FromRole="Konfiguracije_Racunala" ToRole="Radna_Memorija" />
+        </EntityType>
+        <EntityType Name="Kuciste">
+          <Key>
+            <PropertyRef Name="Id_Kucista" />
+          </Key>
+          <Property Name="Id_Kucista" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv_Kucista" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Proizvodac_Kucista" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cijena_Kucista" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Konfiguracije_Racunala" Relationship="Self.FK_Konfiguracije_Racunala_Kuciste" FromRole="Kuciste" ToRole="Konfiguracije_Racunala" />
+        </EntityType>
+        <EntityType Name="Maticna_Ploca">
+          <Key>
+            <PropertyRef Name="Id_Maticna_Ploca" />
+          </Key>
+          <Property Name="Id_Maticna_Ploca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv_Maticne" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Proizvodac_Maticne" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SOCKET_Maticne" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cijena_Maticne" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Konfiguracije_Racunala" Relationship="Self.FK_Konfiguracije_Racunala_Maticna_Ploca" FromRole="Maticna_Ploca" ToRole="Konfiguracije_Racunala" />
+        </EntityType>
+        <EntityType Name="Napajanje">
+          <Key>
+            <PropertyRef Name="Id_Napajanje" />
+          </Key>
+          <Property Name="Id_Napajanje" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv_Napajanja" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Proizvodac_Napajanja" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Certifikat_Napajanaj" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kapacitet_Napajanja" Type="Int32" />
+          <Property Name="Cijena_Napajanja" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Konfiguracije_Racunala" Relationship="Self.FK_Konfiguracije_Racunala_Napajanje" FromRole="Napajanje" ToRole="Konfiguracije_Racunala" />
+        </EntityType>
+        <EntityType Name="Pohrana">
+          <Key>
+            <PropertyRef Name="Id_Pohrana" />
+          </Key>
+          <Property Name="Id_Pohrana" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv_Diska" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Proizvodac_Diska" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kapacitet_Diska" Type="Int32" />
+          <Property Name="Cijena_Diska" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Konfiguracije_Racunala" Relationship="Self.FK_Konfiguracije_Racunala_Pohrana" FromRole="Pohrana" ToRole="Konfiguracije_Racunala" />
+        </EntityType>
+        <EntityType Name="Procesor">
+          <Key>
+            <PropertyRef Name="Id_Procesor" />
+          </Key>
+          <Property Name="Id_Procesor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv_Procesora" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Proizvodac_Procesora" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Godina_Proizvodnje" Type="Int32" />
+          <Property Name="Broj_Jezgri" Type="Int32" />
+          <Property Name="Takt_Procesora" Type="Double" />
+          <Property Name="Cijena_Procesora" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Konfiguracije_Racunala" Relationship="Self.FK_Konfiguracije_Racunala_Procesor" FromRole="Procesor" ToRole="Konfiguracije_Racunala" />
+        </EntityType>
+        <EntityType Name="Radna_Memorija">
+          <Key>
+            <PropertyRef Name="Id_RAM" />
+          </Key>
+          <Property Name="Id_RAM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naziv_RAM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Proizvodac_RAM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kapacitet_RAM" Type="Int32" />
+          <Property Name="Tip_Memorije" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cijena_RAM" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Konfiguracije_Racunala" Relationship="Self.FK_Konfiguracije_Racunala_Radna_Memorija" FromRole="Radna_Memorija" ToRole="Konfiguracije_Racunala" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Konfiguracije_Racunala_Graficka_Kartica">
+          <End Role="Graficka_Kartica" Type="Self.Graficka_Kartica" Multiplicity="0..1" />
+          <End Role="Konfiguracije_Racunala" Type="Self.Konfiguracije_Racunala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Graficka_Kartica">
+              <PropertyRef Name="Id_Graficke" />
+            </Principal>
+            <Dependent Role="Konfiguracije_Racunala">
+              <PropertyRef Name="VK_Graficku" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konfiguracije_Racunala_Kuciste">
+          <End Role="Kuciste" Type="Self.Kuciste" Multiplicity="0..1" />
+          <End Role="Konfiguracije_Racunala" Type="Self.Konfiguracije_Racunala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kuciste">
+              <PropertyRef Name="Id_Kucista" />
+            </Principal>
+            <Dependent Role="Konfiguracije_Racunala">
+              <PropertyRef Name="VK_Kuciste" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konfiguracije_Racunala_Maticna_Ploca">
+          <End Role="Maticna_Ploca" Type="Self.Maticna_Ploca" Multiplicity="0..1" />
+          <End Role="Konfiguracije_Racunala" Type="Self.Konfiguracije_Racunala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maticna_Ploca">
+              <PropertyRef Name="Id_Maticna_Ploca" />
+            </Principal>
+            <Dependent Role="Konfiguracije_Racunala">
+              <PropertyRef Name="VK_Maticna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konfiguracije_Racunala_Napajanje">
+          <End Role="Napajanje" Type="Self.Napajanje" Multiplicity="0..1" />
+          <End Role="Konfiguracije_Racunala" Type="Self.Konfiguracije_Racunala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Napajanje">
+              <PropertyRef Name="Id_Napajanje" />
+            </Principal>
+            <Dependent Role="Konfiguracije_Racunala">
+              <PropertyRef Name="VK_Napajanje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konfiguracije_Racunala_Pohrana">
+          <End Role="Pohrana" Type="Self.Pohrana" Multiplicity="0..1" />
+          <End Role="Konfiguracije_Racunala" Type="Self.Konfiguracije_Racunala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pohrana">
+              <PropertyRef Name="Id_Pohrana" />
+            </Principal>
+            <Dependent Role="Konfiguracije_Racunala">
+              <PropertyRef Name="VK_Pohranu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konfiguracije_Racunala_Procesor">
+          <End Role="Procesor" Type="Self.Procesor" Multiplicity="0..1" />
+          <End Role="Konfiguracije_Racunala" Type="Self.Konfiguracije_Racunala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Procesor">
+              <PropertyRef Name="Id_Procesor" />
+            </Principal>
+            <Dependent Role="Konfiguracije_Racunala">
+              <PropertyRef Name="VK_Procesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konfiguracije_Racunala_Radna_Memorija">
+          <End Role="Radna_Memorija" Type="Self.Radna_Memorija" Multiplicity="0..1" />
+          <End Role="Konfiguracije_Racunala" Type="Self.Konfiguracije_Racunala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Radna_Memorija">
+              <PropertyRef Name="Id_RAM" />
+            </Principal>
+            <Dependent Role="Konfiguracije_Racunala">
+              <PropertyRef Name="VK_RAM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RacunalaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Graficka_Kartica" EntityType="Self.Graficka_Kartica" />
+          <EntitySet Name="Konfiguracije_Racunala" EntityType="Self.Konfiguracije_Racunala" />
+          <EntitySet Name="Kucistes" EntityType="Self.Kuciste" />
+          <EntitySet Name="Maticna_Ploca" EntityType="Self.Maticna_Ploca" />
+          <EntitySet Name="Napajanjes" EntityType="Self.Napajanje" />
+          <EntitySet Name="Pohranas" EntityType="Self.Pohrana" />
+          <EntitySet Name="Procesors" EntityType="Self.Procesor" />
+          <EntitySet Name="Radna_Memorija" EntityType="Self.Radna_Memorija" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK_Konfiguracije_Racunala_Graficka_Kartica" Association="Self.FK_Konfiguracije_Racunala_Graficka_Kartica">
+            <End Role="Graficka_Kartica" EntitySet="Graficka_Kartica" />
+            <End Role="Konfiguracije_Racunala" EntitySet="Konfiguracije_Racunala" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konfiguracije_Racunala_Kuciste" Association="Self.FK_Konfiguracije_Racunala_Kuciste">
+            <End Role="Kuciste" EntitySet="Kucistes" />
+            <End Role="Konfiguracije_Racunala" EntitySet="Konfiguracije_Racunala" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konfiguracije_Racunala_Maticna_Ploca" Association="Self.FK_Konfiguracije_Racunala_Maticna_Ploca">
+            <End Role="Maticna_Ploca" EntitySet="Maticna_Ploca" />
+            <End Role="Konfiguracije_Racunala" EntitySet="Konfiguracije_Racunala" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konfiguracije_Racunala_Napajanje" Association="Self.FK_Konfiguracije_Racunala_Napajanje">
+            <End Role="Napajanje" EntitySet="Napajanjes" />
+            <End Role="Konfiguracije_Racunala" EntitySet="Konfiguracije_Racunala" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konfiguracije_Racunala_Pohrana" Association="Self.FK_Konfiguracije_Racunala_Pohrana">
+            <End Role="Pohrana" EntitySet="Pohranas" />
+            <End Role="Konfiguracije_Racunala" EntitySet="Konfiguracije_Racunala" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konfiguracije_Racunala_Procesor" Association="Self.FK_Konfiguracije_Racunala_Procesor">
+            <End Role="Procesor" EntitySet="Procesors" />
+            <End Role="Konfiguracije_Racunala" EntitySet="Konfiguracije_Racunala" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konfiguracije_Racunala_Radna_Memorija" Association="Self.FK_Konfiguracije_Racunala_Radna_Memorija">
+            <End Role="Radna_Memorija" EntitySet="Radna_Memorija" />
+            <End Role="Konfiguracije_Racunala" EntitySet="Konfiguracije_Racunala" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RacunalaModelStoreContainer" CdmEntityContainer="RacunalaEntities">
+          <EntitySetMapping Name="Graficka_Kartica">
+            <EntityTypeMapping TypeName="RacunalaModel.Graficka_Kartica">
+              <MappingFragment StoreEntitySet="Graficka_Kartica">
+                <ScalarProperty Name="Id_Graficke" ColumnName="Id_Graficke" />
+                <ScalarProperty Name="Naziv__Graficke" ColumnName="Naziv__Graficke" />
+                <ScalarProperty Name="Godina_Proizvodnje" ColumnName="Godina_Proizvodnje" />
+                <ScalarProperty Name="Naziv_Proizvodaca" ColumnName="Naziv_Proizvodaca" />
+                <ScalarProperty Name="Kapacitet_Memorije" ColumnName="Kapacitet_Memorije" />
+                <ScalarProperty Name="Cijena_Graficke" ColumnName="Cijena_Graficke" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Konfiguracije_Racunala">
+            <EntityTypeMapping TypeName="RacunalaModel.Konfiguracije_Racunala">
+              <MappingFragment StoreEntitySet="Konfiguracije_Racunala">
+                <ScalarProperty Name="Id_Konfiguracije" ColumnName="Id_Konfiguracije" />
+                <ScalarProperty Name="Naziv_Konfiguracije" ColumnName="Naziv_Konfiguracije" />
+                <ScalarProperty Name="Cijena_Konfiguracije" ColumnName="Cijena_Konfiguracije" />
+                <ScalarProperty Name="Stanje_Na_Skladistu" ColumnName="Stanje_Na_Skladistu" />
+                <ScalarProperty Name="VK_Graficku" ColumnName="VK_Graficku" />
+                <ScalarProperty Name="VK_Kuciste" ColumnName="VK_Kuciste" />
+                <ScalarProperty Name="VK_Maticna" ColumnName="VK_Maticna" />
+                <ScalarProperty Name="VK_Napajanje" ColumnName="VK_Napajanje" />
+                <ScalarProperty Name="VK_Pohranu" ColumnName="VK_Pohranu" />
+                <ScalarProperty Name="VK_Procesor" ColumnName="VK_Procesor" />
+                <ScalarProperty Name="VK_RAM" ColumnName="VK_RAM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kucistes">
+            <EntityTypeMapping TypeName="RacunalaModel.Kuciste">
+              <MappingFragment StoreEntitySet="Kuciste">
+                <ScalarProperty Name="Id_Kucista" ColumnName="Id_Kucista" />
+                <ScalarProperty Name="Naziv_Kucista" ColumnName="Naziv_Kucista" />
+                <ScalarProperty Name="Proizvodac_Kucista" ColumnName="Proizvodac_Kucista" />
+                <ScalarProperty Name="Cijena_Kucista" ColumnName="Cijena_Kucista" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Maticna_Ploca">
+            <EntityTypeMapping TypeName="RacunalaModel.Maticna_Ploca">
+              <MappingFragment StoreEntitySet="Maticna_Ploca">
+                <ScalarProperty Name="Id_Maticna_Ploca" ColumnName="Id_Maticna_Ploca" />
+                <ScalarProperty Name="Naziv_Maticne" ColumnName="Naziv_Maticne" />
+                <ScalarProperty Name="Proizvodac_Maticne" ColumnName="Proizvodac_Maticne" />
+                <ScalarProperty Name="SOCKET_Maticne" ColumnName="SOCKET_Maticne" />
+                <ScalarProperty Name="Cijena_Maticne" ColumnName="Cijena_Maticne" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Napajanjes">
+            <EntityTypeMapping TypeName="RacunalaModel.Napajanje">
+              <MappingFragment StoreEntitySet="Napajanje">
+                <ScalarProperty Name="Id_Napajanje" ColumnName="Id_Napajanje" />
+                <ScalarProperty Name="Naziv_Napajanja" ColumnName="Naziv_Napajanja" />
+                <ScalarProperty Name="Proizvodac_Napajanja" ColumnName="Proizvodac_Napajanja" />
+                <ScalarProperty Name="Certifikat_Napajanaj" ColumnName="Certifikat_Napajanaj" />
+                <ScalarProperty Name="Kapacitet_Napajanja" ColumnName="Kapacitet_Napajanja" />
+                <ScalarProperty Name="Cijena_Napajanja" ColumnName="Cijena_Napajanja" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pohranas">
+            <EntityTypeMapping TypeName="RacunalaModel.Pohrana">
+              <MappingFragment StoreEntitySet="Pohrana">
+                <ScalarProperty Name="Id_Pohrana" ColumnName="Id_Pohrana" />
+                <ScalarProperty Name="Naziv_Diska" ColumnName="Naziv_Diska" />
+                <ScalarProperty Name="Proizvodac_Diska" ColumnName="Proizvodac_Diska" />
+                <ScalarProperty Name="Kapacitet_Diska" ColumnName="Kapacitet_Diska" />
+                <ScalarProperty Name="Cijena_Diska" ColumnName="Cijena_Diska" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Procesors">
+            <EntityTypeMapping TypeName="RacunalaModel.Procesor">
+              <MappingFragment StoreEntitySet="Procesor">
+                <ScalarProperty Name="Id_Procesor" ColumnName="Id_Procesor" />
+                <ScalarProperty Name="Naziv_Procesora" ColumnName="Naziv_Procesora" />
+                <ScalarProperty Name="Proizvodac_Procesora" ColumnName="Proizvodac_Procesora" />
+                <ScalarProperty Name="Godina_Proizvodnje" ColumnName="Godina_Proizvodnje" />
+                <ScalarProperty Name="Broj_Jezgri" ColumnName="Broj_Jezgri" />
+                <ScalarProperty Name="Takt_Procesora" ColumnName="Takt_Procesora" />
+                <ScalarProperty Name="Cijena_Procesora" ColumnName="Cijena_Procesora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Radna_Memorija">
+            <EntityTypeMapping TypeName="RacunalaModel.Radna_Memorija">
+              <MappingFragment StoreEntitySet="Radna_Memorija">
+                <ScalarProperty Name="Id_RAM" ColumnName="Id_RAM" />
+                <ScalarProperty Name="Naziv_RAM" ColumnName="Naziv_RAM" />
+                <ScalarProperty Name="Proizvodac_RAM" ColumnName="Proizvodac_RAM" />
+                <ScalarProperty Name="Kapacitet_RAM" ColumnName="Kapacitet_RAM" />
+                <ScalarProperty Name="Tip_Memorije" ColumnName="Tip_Memorije" />
+                <ScalarProperty Name="Cijena_RAM" ColumnName="Cijena_RAM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="RacunalaModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
