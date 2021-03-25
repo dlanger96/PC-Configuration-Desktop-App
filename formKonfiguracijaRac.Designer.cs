@@ -30,7 +30,9 @@ namespace Racunala
         private void InitializeComponent()
         {
             this.dgvKonfiguracija = new System.Windows.Forms.DataGridView();
+            this.dgvGraficke = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKonfiguracija)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGraficke)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvKonfiguracija
@@ -41,15 +43,25 @@ namespace Racunala
             this.dgvKonfiguracija.Size = new System.Drawing.Size(1191, 150);
             this.dgvKonfiguracija.TabIndex = 0;
             // 
+            // dgvGraficke
+            // 
+            this.dgvGraficke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGraficke.Location = new System.Drawing.Point(13, 198);
+            this.dgvGraficke.Name = "dgvGraficke";
+            this.dgvGraficke.Size = new System.Drawing.Size(720, 150);
+            this.dgvGraficke.TabIndex = 1;
+            // 
             // formKonfiguracijaRac
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1468, 707);
+            this.Controls.Add(this.dgvGraficke);
             this.Controls.Add(this.dgvKonfiguracija);
             this.Name = "formKonfiguracijaRac";
             this.Text = "fromKonfiguracijaRac";
             ((System.ComponentModel.ISupportInitialize)(this.dgvKonfiguracija)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGraficke)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -57,5 +69,6 @@ namespace Racunala
         #endregion
 
         private System.Windows.Forms.DataGridView dgvKonfiguracija;
+        private System.Windows.Forms.DataGridView dgvGraficke;
     }
 }
