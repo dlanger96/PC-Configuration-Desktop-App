@@ -12,10 +12,10 @@ namespace Racunala
     using System;
     using System.Collections.Generic;
     
-    public partial class Kuciste
+    public partial class Graficka_Kartica
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Kuciste()
+        public Graficka_Kartica()
         {
             this.Konfiguracije_Racunala = new HashSet<Konfiguracije_Racunala>();
         }

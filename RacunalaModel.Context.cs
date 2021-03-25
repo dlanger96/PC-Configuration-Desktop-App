@@ -25,7 +25,7 @@ namespace Racunala
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Kuciste> Graficka_Kartica { get; set; }
+        public virtual DbSet<Graficka_Kartica> Graficka_Kartica { get; set; }
         public virtual DbSet<Konfiguracije_Racunala> Konfiguracije_Racunala { get; set; }
         public virtual DbSet<Kuciste> Kucistes { get; set; }
         public virtual DbSet<Maticna_Ploca> Maticna_Ploca { get; set; }

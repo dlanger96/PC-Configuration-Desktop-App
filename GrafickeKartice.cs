@@ -9,12 +9,12 @@ namespace Racunala
 {
     class GrafickeKartice
     {
-        public BindingList<Kuciste> DohvatiSveGRaficke()
+        public BindingList<Graficka_Kartica> DohvatiSveGRaficke()
         {
-            BindingList<Kuciste> listaGrafickihKartica;
+            BindingList<Graficka_Kartica> listaGrafickihKartica;
             using (RacunalaEntities entities = new RacunalaEntities())
             {
-                listaGrafickihKartica = new BindingList<Kuciste>(entities.Graficka_Kartica.ToList());
+                listaGrafickihKartica = new BindingList<Graficka_Kartica>(entities.Graficka_Kartica.ToList());
             }
             return listaGrafickihKartica;
         }

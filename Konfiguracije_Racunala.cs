@@ -26,7 +26,7 @@ namespace Racunala
         public Nullable<int> VK_Procesor { get; set; }
         public Nullable<int> VK_RAM { get; set; }
     
-        public virtual Kuciste Graficka_Kartica { get; set; }
+        public virtual Graficka_Kartica Graficka_Kartica { get; set; }
         public virtual Kuciste Kuciste { get; set; }
         public virtual Maticna_Ploca Maticna_Ploca { get; set; }
         public virtual Napajanje Napajanje { get; set; }
