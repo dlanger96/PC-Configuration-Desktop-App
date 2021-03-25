@@ -21,6 +21,16 @@ namespace Racunala
         MaticnePloce maticne = new MaticnePloce();
         Napajanja napajanja = new Napajanja();
         DataGridViewRow dgvRow;
+
+        decimal cijenaGraf = 0;
+        decimal cijenaKuc = 0;
+        decimal cijenaMatic = 0;
+        decimal cijenaNap = 0;
+        decimal cijenaPohr = 0;
+        decimal cijenaProc = 0;
+        decimal cijenaRam = 0;
+
+        decimal sumaCijene = 0;
         public formKonfiguracijaRac()
         {
             InitializeComponent();
@@ -84,6 +94,7 @@ g.Id_Graficke == konf.VK_Graficku && k.Id_Kucista == konf.VK_Kuciste && m.Id_Mat
         {
             dgvRow = dgvGraficke.Rows[e.RowIndex];
             txtGraficka.Text = dgvRow.Cells[0].Value.ToString();
+            cijenaGraf= decimal.Parse(dgvRow.Cells[5].Value.ToString());
 
         }
 
@@ -91,6 +102,7 @@ g.Id_Graficke == konf.VK_Graficku && k.Id_Kucista == konf.VK_Kuciste && m.Id_Mat
         {
             dgvRow = dgvKucista.Rows[e.RowIndex];
             txtKuciste.Text = dgvRow.Cells[0].Value.ToString();
+            cijenaKuc = decimal.Parse(dgvRow.Cells[3].Value.ToString());
         }
 
         private void dgvMaticna_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -102,18 +114,21 @@ g.Id_Graficke == konf.VK_Graficku && k.Id_Kucista == konf.VK_Kuciste && m.Id_Mat
         {
             dgvRow = dgvRam.Rows[e.RowIndex];
             txtRam.Text = dgvRow.Cells[0].Value.ToString();
+            cijenaRam = decimal.Parse(dgvRow.Cells[5].Value.ToString());
         }
 
         private void dgvNapajanje_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvRow = dgvNapajanje.Rows[e.RowIndex];
             txtNapajanje.Text = dgvRow.Cells[0].Value.ToString();
+            cijenaNap = decimal.Parse(dgvRow.Cells[5].Value.ToString());
         }
 
         private void dgvPohrana_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvRow = dgvPohrana.Rows[e.RowIndex];
             txtPohrana.Text = dgvRow.Cells[0].Value.ToString();
+            cijenaPohr = decimal.Parse(dgvRow.Cells[4].Value.ToString());
         }
 
         private void dgvProcesor_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -125,16 +140,22 @@ g.Id_Graficke == konf.VK_Graficku && k.Id_Kucista == konf.VK_Kuciste && m.Id_Mat
         {
             dgvRow = dgvMaticna.Rows[e.RowIndex];
             txtMaticna.Text = dgvRow.Cells[0].Value.ToString();
+            cijenaMatic = decimal.Parse(dgvRow.Cells[4].Value.ToString());
         }
 
         private void dgvProcesor_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvRow = dgvProcesor.Rows[e.RowIndex];
             txtProcesor.Text = dgvRow.Cells[0].Value.ToString();
+            cijenaProc = decimal.Parse(dgvRow.Cells[6].Value.ToString());
+            sumaCijene = cijenaGraf + cijenaKuc + cijenaMatic + cijenaNap + cijenaPohr + cijenaProc + cijenaRam;
+
+
         }
 
         private void btnDodajKonfig_Click(object sender, EventArgs e)
         {
+            txtCijenaKonf.Text = sumaCijene.ToString();
             string nazivKonfig = txtNazivKonf.Text;
             int stanjeSkladista = int.Parse(txtStanjeKonf.Text);
             decimal cijenaKonfig = decimal.Parse(txtCijenaKonf.Text);
