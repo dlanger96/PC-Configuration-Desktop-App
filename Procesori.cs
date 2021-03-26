@@ -41,8 +41,7 @@ namespace Racunala
             BindingList<Procesor> listaProcesoraPretrazivanje;
             using (RacunalaEntities entities = new RacunalaEntities())
             {
-                //string sql = "SELECT * FROM Procesor WHERE Naziv_Procesora LIKE '"+ nazivProcesora +"%'";
-                //istaProcesoraPretrazivanje = new BindingList<Procesor>(entities.Procesors.SqlQuery(sql).ToList());
+                
                 var upit = from p in entities.Procesors where p.Naziv_Procesora.Contains(nazivProcesora) select p;
                 listaProcesoraPretrazivanje = new BindingList<Procesor>(upit.ToList());
 
