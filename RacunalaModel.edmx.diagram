@@ -21,6 +21,8 @@
         <AssociationConnector Association="RacunalaModel.FK_Konfiguracije_Racunala_Pohrana" ManuallyRouted="false" />
         <AssociationConnector Association="RacunalaModel.FK_Konfiguracije_Racunala_Procesor" ManuallyRouted="false" />
         <AssociationConnector Association="RacunalaModel.FK_Konfiguracije_Racunala_Radna_Memorija" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="RacunalaModel.Skladiste" Width="1.5" PointX="7" PointY="14.375" />
+        <AssociationConnector Association="RacunalaModel.FK_Skladiste_Konfiguracije_Racunala" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

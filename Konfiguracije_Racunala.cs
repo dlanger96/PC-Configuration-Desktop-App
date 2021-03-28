@@ -33,5 +33,6 @@ namespace Racunala
         public virtual Pohrana Pohrana { get; set; }
         public virtual Procesor Procesor { get; set; }
         public virtual Radna_Memorija Radna_Memorija { get; set; }
+        public virtual Skladiste Skladiste { get; set; }
     }
 }

@@ -37,6 +37,7 @@ namespace Racunala
             this.btnRam = new System.Windows.Forms.Button();
             this.btnPohrana = new System.Windows.Forms.Button();
             this.btnKonfiguracija = new System.Windows.Forms.Button();
+            this.btnSkladiste = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,7 +106,7 @@ namespace Racunala
             // 
             // btnKonfiguracija
             // 
-            this.btnKonfiguracija.Location = new System.Drawing.Point(623, 429);
+            this.btnKonfiguracija.Location = new System.Drawing.Point(12, 460);
             this.btnKonfiguracija.Name = "btnKonfiguracija";
             this.btnKonfiguracija.Size = new System.Drawing.Size(182, 90);
             this.btnKonfiguracija.TabIndex = 7;
@@ -113,11 +114,22 @@ namespace Racunala
             this.btnKonfiguracija.UseVisualStyleBackColor = true;
             this.btnKonfiguracija.Click += new System.EventHandler(this.btnKonfiguracija_Click);
             // 
+            // btnSkladiste
+            // 
+            this.btnSkladiste.Location = new System.Drawing.Point(232, 460);
+            this.btnSkladiste.Name = "btnSkladiste";
+            this.btnSkladiste.Size = new System.Drawing.Size(182, 90);
+            this.btnSkladiste.TabIndex = 8;
+            this.btnSkladiste.Text = "Stanje Skladista";
+            this.btnSkladiste.UseVisualStyleBackColor = true;
+            this.btnSkladiste.Click += new System.EventHandler(this.btnSkladiste_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1210, 613);
+            this.Controls.Add(this.btnSkladiste);
             this.Controls.Add(this.btnKonfiguracija);
             this.Controls.Add(this.btnPohrana);
             this.Controls.Add(this.btnRam);
@@ -143,6 +155,7 @@ namespace Racunala
         private System.Windows.Forms.Button btnRam;
         private System.Windows.Forms.Button btnPohrana;
         private System.Windows.Forms.Button btnKonfiguracija;
+        private System.Windows.Forms.Button btnSkladiste;
     }
 }
 

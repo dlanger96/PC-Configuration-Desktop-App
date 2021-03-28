@@ -63,10 +63,13 @@ namespace Racunala
             // 
             // dgvKonfiguracija
             // 
+            this.dgvKonfiguracija.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvKonfiguracija.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvKonfiguracija.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKonfiguracija.Location = new System.Drawing.Point(12, 12);
             this.dgvKonfiguracija.Name = "dgvKonfiguracija";
-            this.dgvKonfiguracija.Size = new System.Drawing.Size(1191, 150);
+            this.dgvKonfiguracija.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvKonfiguracija.Size = new System.Drawing.Size(1444, 150);
             this.dgvKonfiguracija.TabIndex = 0;
             // 
             // dgvGraficke
@@ -74,6 +77,7 @@ namespace Racunala
             this.dgvGraficke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGraficke.Location = new System.Drawing.Point(12, 186);
             this.dgvGraficke.Name = "dgvGraficke";
+            this.dgvGraficke.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGraficke.Size = new System.Drawing.Size(397, 122);
             this.dgvGraficke.TabIndex = 1;
             this.dgvGraficke.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGraficke_CellClick);
@@ -83,6 +87,7 @@ namespace Racunala
             this.dgvKucista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKucista.Location = new System.Drawing.Point(12, 314);
             this.dgvKucista.Name = "dgvKucista";
+            this.dgvKucista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKucista.Size = new System.Drawing.Size(397, 110);
             this.dgvKucista.TabIndex = 2;
             this.dgvKucista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKucista_CellClick);
@@ -92,6 +97,7 @@ namespace Racunala
             this.dgvMaticna.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMaticna.Location = new System.Drawing.Point(12, 428);
             this.dgvMaticna.Name = "dgvMaticna";
+            this.dgvMaticna.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMaticna.Size = new System.Drawing.Size(397, 110);
             this.dgvMaticna.TabIndex = 3;
             this.dgvMaticna.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaticna_CellClick);
@@ -102,6 +108,7 @@ namespace Racunala
             this.dgvNapajanje.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNapajanje.Location = new System.Drawing.Point(531, 186);
             this.dgvNapajanje.Name = "dgvNapajanje";
+            this.dgvNapajanje.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNapajanje.Size = new System.Drawing.Size(459, 122);
             this.dgvNapajanje.TabIndex = 4;
             this.dgvNapajanje.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNapajanje_CellClick);
@@ -111,6 +118,7 @@ namespace Racunala
             this.dgvPohrana.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPohrana.Location = new System.Drawing.Point(531, 314);
             this.dgvPohrana.Name = "dgvPohrana";
+            this.dgvPohrana.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPohrana.Size = new System.Drawing.Size(459, 110);
             this.dgvPohrana.TabIndex = 5;
             this.dgvPohrana.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPohrana_CellClick);
@@ -120,7 +128,8 @@ namespace Racunala
             this.dgvProcesor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProcesor.Location = new System.Drawing.Point(531, 428);
             this.dgvProcesor.Name = "dgvProcesor";
-            this.dgvProcesor.Size = new System.Drawing.Size(750, 110);
+            this.dgvProcesor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProcesor.Size = new System.Drawing.Size(700, 110);
             this.dgvProcesor.TabIndex = 6;
             this.dgvProcesor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProcesor_CellClick);
             this.dgvProcesor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProcesor_CellContentClick);
@@ -130,6 +139,7 @@ namespace Racunala
             this.dgvRam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRam.Location = new System.Drawing.Point(12, 554);
             this.dgvRam.Name = "dgvRam";
+            this.dgvRam.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRam.Size = new System.Drawing.Size(397, 110);
             this.dgvRam.TabIndex = 7;
             this.dgvRam.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRam_CellClick);

@@ -34,6 +34,7 @@
     <NavigationProperty Name="Pohrana" Relationship="Self.FK_Konfiguracije_Racunala_Pohrana" FromRole="Konfiguracije_Racunala" ToRole="Pohrana" />
     <NavigationProperty Name="Procesor" Relationship="Self.FK_Konfiguracije_Racunala_Procesor" FromRole="Konfiguracije_Racunala" ToRole="Procesor" />
     <NavigationProperty Name="Radna_Memorija" Relationship="Self.FK_Konfiguracije_Racunala_Radna_Memorija" FromRole="Konfiguracije_Racunala" ToRole="Radna_Memorija" />
+    <NavigationProperty Name="Skladiste" Relationship="RacunalaModel.FK_Skladiste_Konfiguracije_Racunala" FromRole="Konfiguracije_Racunala" ToRole="Skladiste" />
   </EntityType>
   <EntityType Name="Kuciste">
     <Key>
@@ -236,5 +237,74 @@
       <End Role="Radna_Memorija" EntitySet="Radna_Memorija" />
       <End Role="Konfiguracije_Racunala" EntitySet="Konfiguracije_Racunala" />
     </AssociationSet>
+    <EntitySet Name="Skladiste" EntityType="RacunalaModel.Skladiste" />
+    <AssociationSet Name="FK_Skladiste_Konfiguracije_Racunala" Association="RacunalaModel.FK_Skladiste_Konfiguracije_Racunala">
+      <End Role="Konfiguracije_Racunala" EntitySet="Konfiguracije_Racunala" />
+      <End Role="Skladiste" EntitySet="Skladiste" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(RacunalaModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(RacunalaModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
   </EntityContainer>
+  <EntityType Name="Skladiste">
+    <Key>
+      <PropertyRef Name="Vk_Konfiguracija" />
+    </Key>
+    <Property Name="Vk_Konfiguracija" Type="Int32" Nullable="false" />
+    <Property Name="Trenutno_Stanje" Type="Int32" />
+    <Property Name="Staro_Stanje" Type="Int32" />
+    <Property Name="Datum_evidencije" Type="DateTime" Precision="0" />
+    <Property Name="Pozicija" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Konfiguracije_Racunala" Relationship="RacunalaModel.FK_Skladiste_Konfiguracije_Racunala" FromRole="Skladiste" ToRole="Konfiguracije_Racunala" />
+  </EntityType>
+  <Association Name="FK_Skladiste_Konfiguracije_Racunala">
+    <End Type="RacunalaModel.Konfiguracije_Racunala" Role="Konfiguracije_Racunala" Multiplicity="1" />
+    <End Type="RacunalaModel.Skladiste" Role="Skladiste" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Konfiguracije_Racunala">
+        <PropertyRef Name="Id_Konfiguracije" />
+      </Principal>
+      <Dependent Role="Skladiste">
+        <PropertyRef Name="Vk_Konfiguracija" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
 </Schema>

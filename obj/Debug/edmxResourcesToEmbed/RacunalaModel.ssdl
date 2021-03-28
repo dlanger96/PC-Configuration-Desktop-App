@@ -90,6 +90,16 @@
     <Property Name="Tip_Memorije" Type="varchar" MaxLength="50" />
     <Property Name="Cijena_RAM" Type="money" />
   </EntityType>
+  <EntityType Name="Skladiste">
+    <Key>
+      <PropertyRef Name="Vk_Konfiguracija" />
+    </Key>
+    <Property Name="Vk_Konfiguracija" Type="int" Nullable="false" />
+    <Property Name="Trenutno_Stanje" Type="int" />
+    <Property Name="Staro_Stanje" Type="int" />
+    <Property Name="Datum_evidencije" Type="date" />
+    <Property Name="Pozicija" Type="varchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
@@ -184,6 +194,49 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Skladiste_Konfiguracije_Racunala">
+    <End Role="Konfiguracije_Racunala" Type="Self.Konfiguracije_Racunala" Multiplicity="1" />
+    <End Role="Skladiste" Type="Self.Skladiste" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Konfiguracije_Racunala">
+        <PropertyRef Name="Id_Konfiguracije" />
+      </Principal>
+      <Dependent Role="Skladiste">
+        <PropertyRef Name="Vk_Konfiguracija" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="RacunalaModelStoreContainer">
     <EntitySet Name="Graficka_Kartica" EntityType="Self.Graficka_Kartica" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Konfiguracije_Racunala" EntityType="Self.Konfiguracije_Racunala" Schema="dbo" store:Type="Tables" />
@@ -193,6 +246,7 @@
     <EntitySet Name="Pohrana" EntityType="Self.Pohrana" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Procesor" EntityType="Self.Procesor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Radna_Memorija" EntityType="Self.Radna_Memorija" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Skladiste" EntityType="Self.Skladiste" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Konfiguracije_Racunala_Graficka_Kartica" Association="Self.FK_Konfiguracije_Racunala_Graficka_Kartica">
       <End Role="Graficka_Kartica" EntitySet="Graficka_Kartica" />
@@ -221,6 +275,10 @@
     <AssociationSet Name="FK_Konfiguracije_Racunala_Radna_Memorija" Association="Self.FK_Konfiguracije_Racunala_Radna_Memorija">
       <End Role="Radna_Memorija" EntitySet="Radna_Memorija" />
       <End Role="Konfiguracije_Racunala" EntitySet="Konfiguracije_Racunala" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Skladiste_Konfiguracije_Racunala" Association="Self.FK_Skladiste_Konfiguracije_Racunala">
+      <End Role="Konfiguracije_Racunala" EntitySet="Konfiguracije_Racunala" />
+      <End Role="Skladiste" EntitySet="Skladiste" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

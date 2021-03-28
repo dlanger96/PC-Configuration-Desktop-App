@@ -66,5 +66,11 @@ g.Id_Graficke == konf.VK_Graficku && k.Id_Kucista == konf.VK_Kuciste && m.Id_Mat
             formKonfiguracijaRac formaKonfiguracije = new formKonfiguracijaRac();
             formaKonfiguracije.Show();
         }
+
+        private void btnSkladiste_Click(object sender, EventArgs e)
+        {
+            formSkladiste formaSkladiste = new formSkladiste();
+            formaSkladiste.Show();
+        }
     }
 }

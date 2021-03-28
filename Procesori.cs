@@ -14,6 +14,7 @@ namespace Racunala
             BindingList<Procesor> listaProcesora;
             using (RacunalaEntities entities = new RacunalaEntities())
             {
+                
                 listaProcesora = new BindingList<Procesor>(entities.Procesors.ToList());
             }
             return listaProcesora;
@@ -66,6 +67,18 @@ namespace Racunala
                 entities.SaveChanges();
 
             }
+        }
+
+        public void IzbrisiProc(Procesor odabraniProcesor)
+        {
+            using (RacunalaEntities entities = new RacunalaEntities())
+            {
+                entities.Procesors.Attach(odabraniProcesor);
+                entities.Procesors.Remove(odabraniProcesor);
+                entities.SaveChanges();
+            }
+
+            
         }
 
         

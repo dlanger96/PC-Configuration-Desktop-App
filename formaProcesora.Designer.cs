@@ -58,6 +58,7 @@ namespace Racunala
             this.txtIzmGodProc = new System.Windows.Forms.TextBox();
             this.txtIzmNazivProc = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.btnIzbrisiProc = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesori)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,6 +67,10 @@ namespace Racunala
             this.dgvProcesori.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProcesori.Location = new System.Drawing.Point(13, 13);
             this.dgvProcesori.Name = "dgvProcesori";
+            this.dgvProcesori.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.dgvProcesori.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProcesori.ShowCellErrors = false;
+            this.dgvProcesori.ShowRowErrors = false;
             this.dgvProcesori.Size = new System.Drawing.Size(533, 238);
             this.dgvProcesori.TabIndex = 0;
             this.dgvProcesori.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProcesori_CellClick);
@@ -312,11 +317,22 @@ namespace Racunala
             this.label13.TabIndex = 28;
             this.label13.Text = "Pretraživanje po Nazivu procesora";
             // 
+            // btnIzbrisiProc
+            // 
+            this.btnIzbrisiProc.Location = new System.Drawing.Point(568, 128);
+            this.btnIzbrisiProc.Name = "btnIzbrisiProc";
+            this.btnIzbrisiProc.Size = new System.Drawing.Size(189, 85);
+            this.btnIzbrisiProc.TabIndex = 29;
+            this.btnIzbrisiProc.Text = "Izbriši";
+            this.btnIzbrisiProc.UseVisualStyleBackColor = true;
+            this.btnIzbrisiProc.Click += new System.EventHandler(this.btnIzbrisiProc_Click);
+            // 
             // formaProcesora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1081, 581);
+            this.Controls.Add(this.btnIzbrisiProc);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
@@ -385,5 +401,6 @@ namespace Racunala
         private System.Windows.Forms.TextBox txtIzmGodProc;
         private System.Windows.Forms.TextBox txtIzmNazivProc;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnIzbrisiProc;
     }
 }

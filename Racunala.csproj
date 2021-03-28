@@ -77,6 +77,12 @@
     <Compile Include="formKonfiguracijaRac.Designer.cs">
       <DependentUpon>formKonfiguracijaRac.cs</DependentUpon>
     </Compile>
+    <Compile Include="formSkladiste.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formSkladiste.Designer.cs">
+      <DependentUpon>formSkladiste.cs</DependentUpon>
+    </Compile>
     <Compile Include="Graficka_Kartica.cs">
       <DependentUpon>RacunalaModel.tt</DependentUpon>
     </Compile>
@@ -125,6 +131,16 @@
       <DependentUpon>RacunalaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Ram.cs" />
+    <Compile Include="Skladista.cs" />
+    <Compile Include="Skladiste.cs">
+      <DependentUpon>RacunalaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>RacunalaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>RacunalaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="sysdiagram.cs">
       <DependentUpon>RacunalaModel.tt</DependentUpon>
     </Compile>
@@ -136,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formKonfiguracijaRac.resx">
       <DependentUpon>formKonfiguracijaRac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formSkladiste.resx">
+      <DependentUpon>formSkladiste.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -32,3 +32,4 @@ C:\Users\Legion5\Documents\GitHub\PC-Configuration-Desktop-App\bin\Debug\EntityF
 C:\Users\Legion5\Documents\GitHub\PC-Configuration-Desktop-App\bin\Debug\EntityFramework.xml
 C:\Users\Legion5\Documents\GitHub\PC-Configuration-Desktop-App\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Legion5\Documents\GitHub\PC-Configuration-Desktop-App\obj\Debug\Racunala.csproj.CopyComplete
+C:\Users\Legion5\Documents\GitHub\PC-Configuration-Desktop-App\obj\Debug\Racunala.formSkladiste.resources

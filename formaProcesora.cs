@@ -13,6 +13,7 @@ namespace Racunala
     public partial class formaProcesora : Form
     {
         Procesori procesori = new Procesori();
+        
         public formaProcesora()
         {
             InitializeComponent();
@@ -61,6 +62,7 @@ namespace Racunala
 
         private void dgvProcesori_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             DataGridViewRow dgvRow = dgvProcesori.Rows[e.RowIndex];
             txtIzmNazivProc.Text = dgvRow.Cells[1].Value.ToString();
             txtIzmGodProc.Text = dgvRow.Cells[3].Value.ToString();
@@ -69,6 +71,13 @@ namespace Racunala
             txtIzmBrojJezg.Text = dgvRow.Cells[4].Value.ToString();
             txtIzmTaktProc.Text = dgvRow.Cells[5].Value.ToString();
 
+        }
+
+        private void btnIzbrisiProc_Click(object sender, EventArgs e)
+        {
+            Procesor odabraniProcesor = dgvProcesori.CurrentRow.DataBoundItem as Procesor;
+            procesori.IzbrisiProc(odabraniProcesor);
+            Osvjezi();
         }
     }
 }
